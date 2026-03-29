@@ -36,6 +36,8 @@ Approved architecture assets:
 - [Runtime and infrastructure deep dive](architecture/leninkart-platform-runtime-deepdive-gui.png)
 - [Master architecture documentation](docs/PLATFORM_ARCHITECTURE_MASTER.md)
 
+![LeninKart Platform Architecture](architecture/leninkart-platform-architecture.png)
+
 ## Deployment Flow
 
 The deployment model is intentionally strict:
@@ -152,6 +154,26 @@ Observability proof included here covers:
 - observability-backed validation
 - automatic GitOps rollback on deployment failure
 - Jira-aware rollback reporting
+
+## Proof Snapshot
+
+A few representative proof artifacts are surfaced here on the homepage. The full evidence set remains under `docs/` and `screenshots/`.
+
+### Deployment / ArgoCD Proof
+
+![ArgoCD Deployment Proof](screenshots/argocd/argocd-deployment-app.png)
+
+### Observability Proof
+
+![Platform Observability Proof](screenshots/observability/dashboard-platform.png)
+
+### Application Proof
+
+![Application Proof](screenshots/application/frontend-dashboard.png)
+
+More evidence:
+- [Docs and reports](docs/)
+- [All curated screenshots](screenshots/)
 
 ## Repo Links
 
