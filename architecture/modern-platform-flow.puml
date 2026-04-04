@@ -1,0 +1,75 @@
+﻿@startuml
+left to right direction
+skinparam shadowing false
+skinparam backgroundColor white
+skinparam defaultFontName Segoe UI
+skinparam dpi 220
+skinparam linetype ortho
+skinparam ArrowColor #1F2937
+skinparam ArrowThickness 2
+skinparam ranksep 60
+skinparam nodesep 32
+skinparam state {
+  FontColor #0F172A
+  BorderColor #CBD5E1
+  BorderThickness 1.5
+  RoundCorner 20
+  BackgroundColor white
+  StartColor white
+  EndColor white
+}
+skinparam title {
+  FontSize 24
+  FontColor #0F172A
+}
+skinparam note {
+  BackgroundColor #F8FAFC
+  BorderColor #CBD5E1
+  FontColor #475569
+}
+scale max 4200 width
+title Modern LeninKart Platform Flow
+
+state "<size:12><color:#2563EB><b>CI</b></color></size>\n<size:18><b>Developer</b></size>\nCommit to service repo" as DEV #F8FAFC
+state "<size:12><color:#2563EB><b>CI</b></color></size>\n<size:18><b>Service CI</b></size>\n<img:modern-assets/githubactions.svg{scale=0.18}>\nGitHub Actions" as CI #DBEAFE
+state "<size:12><color:#DC2626><b>SECURITY</b></color></size>\n<size:18><b>Security & Quality Gate</b></size>\n<img:modern-assets/sonarqube.svg{scale=0.20}>\n<img:modern-assets/gitleaks.svg{scale=0.15}>\n<img:modern-assets/trivy.svg{scale=0.17}>\nSonarQube | Gitleaks | Trivy\nFS + image scan" as SEC #FEE2E2
+state "<size:12><color:#2563EB><b>ARTIFACT</b></color></size>\n<size:18><b>Docker Build + Push</b></size>\n<img:modern-assets/docker.svg{scale=0.20}>\nVersioned container image" as ART #E0F2FE
+state "<size:12><color:#2563EB><b>ARTIFACT</b></color></size>\n<size:18><b>Metadata Layer</b></size>\nlatest_tags.yaml\nlatest-dev source" as META #EFF6FF
+state "<size:12><color:#7C3AED><b>CONTROL PLANE</b></color></size>\n<size:18><b>Jira Request</b></size>\n<img:modern-assets/jira.svg{scale=0.18}>\nDeployment request" as JIRA #F3E8FF
+state "<size:12><color:#7C3AED><b>CONTROL PLANE</b></color></size>\n<size:18><b>deployment-poc</b></size>\nOrchestration\nVersion resolution\nRollback control" as POC #F5F3FF
+state "<size:12><color:#EA580C><b>GITOPS</b></color></size>\n<size:18><b>leninkart-infra</b></size>\nDesired state\nGitOps commit" as GITOPS #FFEDD5
+state "<size:12><color:#EA580C><b>GITOPS</b></color></size>\n<size:18><b>ArgoCD</b></size>\n<img:modern-assets/argo.svg{scale=0.18}>\nReconciliation" as ARGO #FED7AA
+state "<size:12><color:#16A34A><b>RUNTIME</b></color></size>\n<size:18><b>Kubernetes Runtime</b></size>\n<img:modern-assets/kubernetes.svg{scale=0.18}>\nfrontend\nproduct-service\norder-service" as K8S #DCFCE7
+state "<size:12><color:#7C3AED><b>VALIDATION</b></color></size>\n<size:18><b>project-validation</b></size>\nDeployment + UI + GitOps\nCI security proof" as VAL #F3E8FF
+state "<size:12><color:#1D4ED8><b>OBSERVABILITY</b></color></size>\n<size:18><b>Observability</b></size>\n<img:modern-assets/prometheus.svg{scale=0.15}> <img:modern-assets/grafana.svg{scale=0.15}>\n<img:modern-assets/loki.png{scale=0.08}> <img:modern-assets/tempo.png{scale=0.08}>\n<img:modern-assets/apachekafka.svg{scale=0.15}>\nPrometheus | Grafana | Loki\nTempo | Kafka metrics" as OBS #DBEAFE
+state "<size:12><color:#0F172A><b>RESULT</b></color></size>\n<size:18><b>Result</b></size>\nSuccess\nAuto Rollback" as RES #FEF3C7
+
+DEV --> CI
+CI --> SEC
+SEC --> ART
+ART --> META
+META --> JIRA
+JIRA --> POC
+POC --> GITOPS
+GITOPS --> ARGO
+ARGO --> K8S
+K8S --> VAL
+VAL --> OBS
+OBS --> RES
+
+note top of CI
+Blue flow = CI and artifact promotion
+end note
+
+note top of SEC
+Failing any gate stops promotion
+end note
+
+note bottom of POC
+Deployment control plane\nfeeds Jira and GitOps
+end note
+
+note bottom of RES
+Rollback returns the platform\nto the previous healthy GitOps state
+end note
+@enduml

@@ -1,0 +1,189 @@
+@startuml
+title LeninKart Platform Architecture
+
+left to right direction
+
+skinparam backgroundColor white
+skinparam shadowing false
+skinparam defaultFontName Segoe UI
+skinparam packageStyle rectangle
+skinparam linetype ortho
+skinparam ArrowColor #334155
+skinparam ArrowThickness 1.4
+skinparam package {
+  BorderColor #4B5563
+  RoundCorner 10
+}
+skinparam rectangle {
+  RoundCorner 10
+}
+
+package "Request Layer" as request {
+  rectangle "Operator" as operator
+  rectangle "Jira Ticket" as jira
+  rectangle "GitHub Actions" as request_trigger
+}
+
+package "CI / Control Plane" as control {
+  together {
+    rectangle "Service CI" as service_ci
+    rectangle "Security Gate" as security_gate
+    rectangle "Docker Images" as registry
+    rectangle "latest_tags.yaml" as latest_tags
+  }
+  together {
+    rectangle "Runner" as runner
+    rectangle "deployment-poc" as poc
+    rectangle "Lock Manager" as lock_flow
+  }
+  together {
+    rectangle "Ticket" as jira_step_1
+    rectangle "Lock" as jira_step_2
+    rectangle "Deploy" as jira_step_3
+    rectangle "Sync" as jira_step_4
+    rectangle "Verify" as jira_step_5
+    rectangle "Completed/Failed" as jira_step_6
+  }
+}
+
+package "GitOps Layer" as gitops {
+  together {
+    rectangle "leninkart-infra" as infra
+    rectangle "Desired State" as values_dev
+    rectangle "ArgoCD" as argocd
+  }
+}
+
+package "Kubernetes Runtime\nk3d-leninkart-dev" as runtime {
+  together {
+    rectangle "Ingress" as ingress
+    rectangle "Frontend" as frontend
+  }
+  together {
+    rectangle "Product API" as product
+    rectangle "Order API" as order
+    rectangle "Postgres" as postgres
+  }
+  together {
+    rectangle "Secrets Store" as external_secrets
+    rectangle "Vault" as vault
+    rectangle "Traffic Generator" as loadtest
+  }
+}
+
+package "Validation System" as validation {
+  together {
+    rectangle "Validation Engine" as pv
+    rectangle "Proof Scope" as proof_scope
+    rectangle "Validation Reports" as reports
+  }
+}
+
+package "Observability" as observability {
+  together {
+    rectangle "Promtail" as promtail
+    rectangle "Loki" as loki
+    rectangle "Grafana" as grafana
+  }
+  together {
+    rectangle "Kafka Metrics" as kafka_metrics
+    rectangle "Prometheus" as prometheus
+  }
+  rectangle "Tempo" as tempo
+}
+
+package "External Systems" as external {
+  rectangle "Kafka Runtime" as kafka
+}
+
+' Layout anchors for horizontal bands
+request -[hidden]right-> control
+control -[hidden]right-> gitops
+gitops -[hidden]right-> runtime
+runtime -[hidden]right-> validation
+validation -[hidden]right-> observability
+runtime -[hidden]down-> external
+validation -[hidden]down-> external
+
+operator -[#334155,bold]-> jira
+jira -[#334155,bold]-> request_trigger
+request_trigger -[#334155,bold]-> runner
+runner -[#334155,bold]-> poc
+
+service_ci -[#334155,bold]-> security_gate
+security_gate -[#334155,bold]-> registry
+security_gate -[#334155,bold]-> latest_tags
+latest_tags -[#334155,bold]-> poc
+
+poc -[#334155,bold]-> infra : GitOps commit
+infra -[#334155,bold]-> values_dev
+values_dev -[#334155,bold]-> argocd
+argocd -[#334155,bold]-> ingress
+ingress -[#334155,bold]-> frontend
+ingress -[#334155,bold]-> product
+ingress -[#334155,bold]-> order
+
+' Compact lifecycle pipeline
+jira --> jira_step_1
+jira_step_1 -[hidden]right-> jira_step_2
+jira_step_2 -[hidden]right-> jira_step_3
+jira_step_3 -[hidden]right-> jira_step_4
+jira_step_4 -[hidden]right-> jira_step_5
+jira_step_5 -[hidden]right-> jira_step_6
+poc --> jira_step_2
+poc --> jira_step_3
+argocd --> jira_step_4
+pv --> jira_step_5
+jira_step_5 --> jira_step_6
+
+poc --> lock_flow
+lock_flow -[#334155,bold]-> infra : commit allowed
+
+postgres --> product
+postgres --> order
+vault -[#64748B,dotted]-> external_secrets : secret source
+external_secrets -[#64748B,dotted]-> product : runtime secrets
+external_secrets -[#64748B,dotted]-> order : runtime secrets
+external_secrets -[#64748B,dotted]-> postgres : db secrets
+loadtest --> frontend
+
+product --> kafka
+order --> kafka
+kafka -[#64748B,dotted]-> kafka_metrics
+
+frontend --> pv
+product --> pv
+order --> pv
+argocd --> pv
+infra --> pv
+vault --> pv
+kafka --> pv
+
+pv --> proof_scope
+pv --> reports
+pv --> tempo
+pv --> grafana
+pv --> loki
+pv --> prometheus
+
+promtail --> loki
+loki --> grafana
+kafka_metrics --> prometheus
+prometheus --> grafana
+tempo --> grafana
+
+pv -[#B45309,dashed]-> poc : failure
+poc -[#B45309,dashed]-> infra : Git revert
+infra -[#B45309,dashed]-> argocd : rollback sync
+argocd -[#B45309,dashed]-> ingress : restore state
+lock_flow -[#B45309,dashed]-> poc : release
+
+note bottom of control
+Figma input refinement:
+- control pipeline tightened
+- GitOps path kept direct
+- observability aligned into cleaner vertical flows
+- spacing tuned for AI interpretation
+end note
+
+@enduml
