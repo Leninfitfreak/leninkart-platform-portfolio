@@ -1,0 +1,14 @@
+{
+  "sonarqube": {
+    "status": "local",
+    "path": "D:\\Projects\\Services\\leninkart-platform-portfolio\\icons\\sonarqube.svg"
+  },
+  "gitleaks": {
+    "status": "local",
+    "path": "D:\\Projects\\Services\\leninkart-platform-portfolio\\architecture\\modern-assets\\gitleaks.svg"
+  },
+  "trivy": {
+    "status": "local",
+    "path": "D:\\Projects\\Services\\leninkart-platform-portfolio\\icons\\trivy.svg"
+  }
+}

@@ -1,0 +1,362 @@
+[
+  {
+    "component": "jira ticket",
+    "icon": "D:\\Projects\\Services\\leninkart-platform-portfolio\\icons\\jira.jpg",
+    "x": 118.0,
+    "y": 161.0,
+    "size": 34
+  },
+  {
+    "component": "workflow dispatch",
+    "icon": "D:\\Projects\\Services\\leninkart-platform-portfolio\\icons\\githubactions.svg",
+    "x": 118.0,
+    "y": 271.0,
+    "size": 34
+  },
+  {
+    "component": "frontend repo",
+    "icon": "D:\\Projects\\Services\\leninkart-platform-portfolio\\icons\\github.svg",
+    "x": 335.5,
+    "y": 131.0,
+    "size": 34
+  },
+  {
+    "component": "product repo",
+    "icon": "D:\\Projects\\Services\\leninkart-platform-portfolio\\icons\\github.svg",
+    "x": 490.5,
+    "y": 131.0,
+    "size": 34
+  },
+  {
+    "component": "order repo",
+    "icon": "D:\\Projects\\Services\\leninkart-platform-portfolio\\icons\\github.svg",
+    "x": 645.5,
+    "y": 131.0,
+    "size": 34
+  },
+  {
+    "component": "latest_tags.yaml",
+    "icon": "D:\\Projects\\Services\\architecture\\icons\\yaml_custom.png",
+    "x": 713.0,
+    "y": 273.0,
+    "size": 34
+  },
+  {
+    "component": "deployment-poc",
+    "icon": "D:\\Projects\\Services\\leninkart-platform-portfolio\\icons\\orchestration.png",
+    "x": 485.5,
+    "y": 416.0,
+    "size": 34
+  },
+  {
+    "component": "deploy state + locks",
+    "icon": "D:\\Projects\\Services\\architecture\\icons\\lock_custom.png",
+    "x": 720.5,
+    "y": 429.0,
+    "size": 34
+  },
+  {
+    "component": "leninkart-infra",
+    "icon": "D:\\Projects\\Services\\leninkart-platform-portfolio\\icons\\github.svg",
+    "x": 998.0,
+    "y": 186.0,
+    "size": 34
+  },
+  {
+    "component": "argocd root",
+    "icon": "D:\\Projects\\Services\\leninkart-platform-portfolio\\icons\\argocd.svg",
+    "x": 1138.0,
+    "y": 186.0,
+    "size": 34
+  },
+  {
+    "component": "managed apps",
+    "icon": "D:\\Projects\\Services\\leninkart-platform-portfolio\\icons\\kubernetes.svg",
+    "x": 1068.0,
+    "y": 306.0,
+    "size": 34
+  },
+  {
+    "component": "nginx ingress",
+    "icon": "D:\\Projects\\Services\\leninkart-platform-portfolio\\icons\\nginx.png",
+    "x": 1525.5,
+    "y": 171.0,
+    "size": 34
+  },
+  {
+    "component": "frontend service",
+    "icon": "D:\\Projects\\Services\\architecture\\icons\\service_frontend.png",
+    "x": 1375.5,
+    "y": 351.0,
+    "size": 34
+  },
+  {
+    "component": "product service",
+    "icon": "D:\\Projects\\Services\\architecture\\icons\\service_product.png",
+    "x": 1525.5,
+    "y": 351.0,
+    "size": 34
+  },
+  {
+    "component": "order service",
+    "icon": "D:\\Projects\\Services\\architecture\\icons\\service_order.png",
+    "x": 1675.5,
+    "y": 351.0,
+    "size": 34
+  },
+  {
+    "component": "frontend deployment",
+    "icon": "D:\\Projects\\Services\\architecture\\icons\\deploy_frontend.png",
+    "x": 1375.5,
+    "y": 486.0,
+    "size": 34
+  },
+  {
+    "component": "product deployment",
+    "icon": "D:\\Projects\\Services\\architecture\\icons\\deploy_product.png",
+    "x": 1525.5,
+    "y": 486.0,
+    "size": 34
+  },
+  {
+    "component": "order deployment",
+    "icon": "D:\\Projects\\Services\\architecture\\icons\\deploy_order.png",
+    "x": 1675.5,
+    "y": 486.0,
+    "size": 34
+  },
+  {
+    "component": "frontend pods",
+    "icon": "D:\\Projects\\Services\\architecture\\icons\\pod_small_frontend.png",
+    "x": 1375.5,
+    "y": 611.0,
+    "size": 34
+  },
+  {
+    "component": "product pods",
+    "icon": "D:\\Projects\\Services\\architecture\\icons\\pod_small_product.png",
+    "x": 1525.5,
+    "y": 611.0,
+    "size": 34
+  },
+  {
+    "component": "order pods",
+    "icon": "D:\\Projects\\Services\\architecture\\icons\\pod_small_order.png",
+    "x": 1675.5,
+    "y": 611.0,
+    "size": 34
+  },
+  {
+    "component": "postgresql",
+    "icon": "D:\\Projects\\Services\\leninkart-platform-portfolio\\icons\\postgres.png",
+    "x": 1533.0,
+    "y": 761.0,
+    "size": 34
+  },
+  {
+    "component": "vault-backend",
+    "icon": "D:\\Projects\\Services\\architecture\\icons\\secretstore_custom.png",
+    "x": 1360.5,
+    "y": 761.0,
+    "size": 34
+  },
+  {
+    "component": "vault",
+    "icon": "D:\\Projects\\Services\\leninkart-platform-portfolio\\icons\\vault.svg",
+    "x": 1815.5,
+    "y": 165.5,
+    "size": 27
+  },
+  {
+    "component": "external secrets",
+    "icon": "D:\\Projects\\Services\\architecture\\icons\\external_secrets_custom.png",
+    "x": 1814.5,
+    "y": 301.5,
+    "size": 31
+  },
+  {
+    "component": "kafka platform",
+    "icon": "D:\\Projects\\Services\\leninkart-platform-portfolio\\icons\\kafka.svg",
+    "x": 2047.5,
+    "y": 326.0,
+    "size": 34
+  },
+  {
+    "component": "validation job",
+    "icon": "D:\\Projects\\Services\\leninkart-platform-portfolio\\icons\\validation.png",
+    "x": 2008.0,
+    "y": 526.0,
+    "size": 34
+  },
+  {
+    "component": "test execution",
+    "icon": "D:\\Projects\\Services\\architecture\\icons\\playwright_custom.png",
+    "x": 2008.0,
+    "y": 616.0,
+    "size": 34
+  },
+  {
+    "component": "promtail",
+    "icon": "D:\\Projects\\Services\\architecture\\icons\\promtail_custom.png",
+    "x": 1448.0,
+    "y": 1071.0,
+    "size": 34
+  },
+  {
+    "component": "prometheus",
+    "icon": "D:\\Projects\\Services\\leninkart-platform-portfolio\\icons\\prometheus.svg",
+    "x": 1588.0,
+    "y": 1071.0,
+    "size": 34
+  },
+  {
+    "component": "loki",
+    "icon": "D:\\Projects\\Services\\leninkart-platform-portfolio\\icons\\loki.png",
+    "x": 1728.0,
+    "y": 1071.0,
+    "size": 34
+  },
+  {
+    "component": "tempo",
+    "icon": "D:\\Projects\\Services\\leninkart-platform-portfolio\\icons\\tempo.jpg",
+    "x": 1868.0,
+    "y": 1071.0,
+    "size": 34
+  },
+  {
+    "component": "grafana",
+    "icon": "D:\\Projects\\Services\\leninkart-platform-portfolio\\icons\\grafana.svg",
+    "x": 1991.5,
+    "y": 1072.0,
+    "size": 32
+  },
+  {
+    "component": "jira ticket",
+    "icon": "D:\\Projects\\Services\\leninkart-platform-portfolio\\icons\\jira.jpg",
+    "x": 161.0,
+    "y": 696.0,
+    "size": 18
+  },
+  {
+    "component": "workflow dispatch",
+    "icon": "D:\\Projects\\Services\\leninkart-platform-portfolio\\icons\\githubactions.svg",
+    "x": 161.0,
+    "y": 816.0,
+    "size": 18
+  },
+  {
+    "component": "acquire lock",
+    "icon": "D:\\Projects\\Services\\architecture\\icons\\lock_custom.png",
+    "x": 161.0,
+    "y": 936.0,
+    "size": 18
+  },
+  {
+    "component": "build image + push",
+    "icon": "D:\\Projects\\Services\\leninkart-platform-portfolio\\icons\\docker.svg",
+    "x": 416.0,
+    "y": 1061.0,
+    "size": 18
+  },
+  {
+    "component": "update latest_tags.yaml",
+    "icon": "D:\\Projects\\Services\\architecture\\icons\\yaml_custom.png",
+    "x": 416.0,
+    "y": 1186.0,
+    "size": 18
+  },
+  {
+    "component": "gitops commit",
+    "icon": "D:\\Projects\\Services\\leninkart-platform-portfolio\\icons\\github.svg",
+    "x": 661.0,
+    "y": 936.0,
+    "size": 18
+  },
+  {
+    "component": "argocd sync",
+    "icon": "D:\\Projects\\Services\\leninkart-platform-portfolio\\icons\\argocd.svg",
+    "x": 661.0,
+    "y": 1061.0,
+    "size": 18
+  },
+  {
+    "component": "deploy state + locks",
+    "icon": "D:\\Projects\\Services\\architecture\\icons\\lock_custom.png",
+    "x": 661.0,
+    "y": 1186.0,
+    "size": 18
+  },
+  {
+    "component": "validation",
+    "icon": "D:\\Projects\\Services\\leninkart-platform-portfolio\\icons\\validation.png",
+    "x": 923.5,
+    "y": 986.0,
+    "size": 18
+  },
+  {
+    "component": "release lock",
+    "icon": "D:\\Projects\\Services\\leninkart-platform-portfolio\\icons\\lockopen.png",
+    "x": 1111.0,
+    "y": 986.0,
+    "size": 18
+  },
+  {
+    "component": "mark success",
+    "icon": "D:\\Projects\\Services\\architecture\\icons\\step_verify.png",
+    "x": 1111.0,
+    "y": 1086.0,
+    "size": 18
+  },
+  {
+    "component": "update jira status",
+    "icon": "D:\\Projects\\Services\\leninkart-platform-portfolio\\icons\\jira.jpg",
+    "x": 1111.0,
+    "y": 1186.0,
+    "size": 18
+  },
+  {
+    "component": "rollback to last success",
+    "icon": "D:\\Projects\\Services\\leninkart-platform-portfolio\\icons\\rollback.png",
+    "x": 926.0,
+    "y": 1294.0,
+    "size": 18
+  },
+  {
+    "component": "unlock",
+    "icon": "D:\\Projects\\Services\\leninkart-platform-portfolio\\icons\\lockopen.png",
+    "x": 1111.0,
+    "y": 1294.0,
+    "size": 18
+  },
+  {
+    "component": "update jira status",
+    "icon": "D:\\Projects\\Services\\leninkart-platform-portfolio\\icons\\jira.jpg",
+    "x": 1016.0,
+    "y": 1411.0,
+    "size": 18
+  },
+  {
+    "component": "build + scan",
+    "tool": "sonarqube",
+    "icon": "D:\\Projects\\Services\\leninkart-platform-portfolio\\icons\\sonarqube.svg",
+    "x": 456.0,
+    "y": 264.0,
+    "size": 24
+  },
+  {
+    "component": "build + scan",
+    "tool": "gitleaks",
+    "icon": "D:\\Projects\\Services\\leninkart-platform-portfolio\\architecture\\modern-assets\\gitleaks.svg",
+    "x": 503.0,
+    "y": 264.0,
+    "size": 24
+  },
+  {
+    "component": "build + scan",
+    "tool": "trivy",
+    "icon": "D:\\Projects\\Services\\leninkart-platform-portfolio\\icons\\trivy.svg",
+    "x": 550.0,
+    "y": 264.0,
+    "size": 24
+  }
+]
